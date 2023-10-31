@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.13.0/mapbox-gl.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.8.*/dist/index.js'></script>
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#deck-container canvas {
+  z-index: 1;
+  background: none;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const container = document.getElementById('deck-container');
+    const jsonInput = {
+  "initialViewState": {
+    "latitude": 40.80685770292002,
+    "longitude": -73.96402660295767,
+    "zoom": 15
+  },
+  "layers": [
+    {
+      "@@type": "GeoJsonLayer",
+      "data": [
+        {
+          "category": "university",
+          "city": "NYC",
+          "geometry": {
+            "coordinates": [
+              [
+                [
+                  -73.9645555,
+                  40.8066802
+                ],
+                [
+                  -73.9645534,
+                  40.8066831
+                ],
+                [
+                  -73.9641814,
+                  40.8071933
+                ],
+                [
+                  -73.9635608,
+                  40.8069321
+                ],
+                [
+                  -73.9635209,
+                  40.8069153
+                ],
+                [
+                  -73.9637845,
+                  40.8065538
+                ],
+                [
+                  -73.9638487,
+                  40.8065809
+                ],
+                [
+                  -73.9642685,
+                  40.8067575
+                ],
+                [
+                  -73.9643641,
+                  40.8066187
+                ],
+                [
+                  -73.9643747,
+                  40.8066041
+                ],
+                [
+                  -73.9645527,
+                  40.806679
+                ],
+                [
+                  -73.964554,
+                  40.8066795
+                ],
+                [
+                  -73.9645555,
+                  40.8066802
+                ]
+              ]
+            ],
+            "type": "Polygon"
+          },
+          "name": "Alfred Lerner Hall",
+          "osm_id": "274995718"
+        }
+      ],
+      "filled": true,
+      "getFillColor": [
+        255,
+        80,
+        8
+      ],
+      "getLineColor": [
+        255,
+        80,
+        8
+      ],
+      "id": "aaf69828-8109-4fab-b56e-c8a0c30d4314",
+      "opacity": 0.5,
+      "stroked": true
+    }
+  ],
+  "mapProvider": "carto",
+  "mapStyle": "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+  "views": [
+    {
+      "@@type": "MapView",
+      "controller": true
+    }
+  ]
+};
+    const tooltip = true;
+    const customLibraries = null;
+    const configuration = null;
+
+    const deckInstance = createDeck({
+                  container,
+      jsonInput,
+      tooltip,
+      customLibraries,
+      configuration
+    });
+
+  </script>
+</html>

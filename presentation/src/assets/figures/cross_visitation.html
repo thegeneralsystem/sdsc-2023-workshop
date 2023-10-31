@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@5.14.1"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"range": {"category": ["#FF5722", "#03A9F4", "#F44336", "#00BCD4", "#4CAF50", "#FFEB3B", "#9C27B0", "#E91E63", "#795548", "#9E9E9E"], "heatmap": {"scheme": ["#FFFFFF00", "#FF5008FF"]}, "ordinal": {"scheme": ["#FFFFFF00", "#FF5008FF"]}, "ramp": {"scheme": ["#FFFFFF88", "#FF5008FF"]}, "diverging": {"scheme": ["#FFFFFF00", "#FF5008FF"]}}, "axis": {"labelFont": "Space Grotesk", "titleFont": "Space Grotesk"}, "legend": {"labelFont": "Space Grotesk", "titleFont": "Space Grotesk", "disable": true}, "title": {"font": "Space Grotesk", "subtitleFont": "Space Grotesk"}, "mark": {"font": "Space Grotesk"}, "header": {"labelFont": "Space Grotesk", "titleFont": "Space Grotesk"}}, "data": {"name": "data-23f101d9c68d81163e4ea7564c5afe62"}, "mark": {"type": "bar", "cornerRadiusTopLeft": 3, "cornerRadiusTopRight": 3}, "encoding": {"color": {"value": "#03A9F4"}, "tooltip": {"field": "total_time", "type": "quantitative"}, "x": {"axis": {"labelAngle": -45}, "field": "label", "sort": "-y", "title": "Buildings", "type": "ordinal"}, "y": {"field": "frequency", "title": "Number of Dwells", "type": "quantitative"}}, "title": "20 Most Popular Buildings", "$schema": "https://vega.github.io/schema/vega-lite/v5.14.1.json", "datasets": {"data-23f101d9c68d81163e4ea7564c5afe62": [{"label": "BSC - Breve", "frequency": 44, "total_time": 54.97834666666667}, {"label": "BSC - Coconut Mocha", "frequency": 35, "total_time": 41.48327388888889}, {"label": "BSC - Macchiato", "frequency": 34, "total_time": 40.76515444444444}, {"label": "id_285034889", "frequency": 33, "total_time": 37.87101694444444}, {"label": "BSC - Hazelnut Mocha", "frequency": 30, "total_time": 39.08069527777778}, {"label": "id_182429906", "frequency": 30, "total_time": 38.27076638888889}, {"label": "BSC - Turkish", "frequency": 30, "total_time": 38.64696166666667}, {"label": "BSC - Kopi Tubruk", "frequency": 28, "total_time": 32.98614444444444}, {"label": "house - id_931552271", "frequency": 26, "total_time": 31.479054444444444}, {"label": "house - id_1177577172", "frequency": 26, "total_time": 35.48831861111111}, {"label": "house - id_778111033", "frequency": 26, "total_time": 32.30157527777778}, {"label": "id_248570502", "frequency": 25, "total_time": 26.537235}, {"label": "BSC - Irish Mocha", "frequency": 25, "total_time": 29.025566944444446}, {"label": "house - id_993333190", "frequency": 24, "total_time": 28.621063055555556}, {"label": "id_150231472", "frequency": 24, "total_time": 31.496380000000002}, {"label": "BSC - Chai Latte", "frequency": 24, "total_time": 31.028515555555554}, {"label": "id_271883385", "frequency": 23, "total_time": 29.114193333333333}, {"label": "BSC - Mocha Frappe", "frequency": 23, "total_time": 30.8176175}, {"label": "id_281398663", "frequency": 22, "total_time": 30.32833861111111}, {"label": "id_277125553", "frequency": 22, "total_time": 31.416935277777778}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>

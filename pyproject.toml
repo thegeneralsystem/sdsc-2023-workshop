@@ -1,0 +1,91 @@
+[tool.poetry]
+name = "sdsc-nyc-2023-workshop"
+version = "0.1.0"
+description = "Repository for CARTO Spatial Data Science Conference NYC 2023 Workshop: Deeper, Broader, Faster, Stronger: Expanding into new dimensions with spatiotemporal data"
+authors = ["Robert <robert.edwards@generalsystem.com>"]
+license = "Apache-2.0"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+altair = "^5.1.1"
+dfipy = "^4.0.0"
+geopandas = "^0.14.0"
+h3 = "^3.7.6"
+ipywidgets = "^8.1.1"
+jupyterlab = "^4.0.6"
+pandas = "^2.1.0"
+pyarrow = "^13.0.0"
+pydeck = "^0.8.0"
+tqdm = "^4.66.1"
+urllib3 = "^2.0.6"
+
+
+[tool.poetry.group.dev.dependencies]
+black = {extras = ["jupyter"], version = "^23.9.1"}
+nbqa = {extras = ["toolchain"], version = "^1.7.0"}
+
+[tool.mypy]
+exclude = ["^build/", "^tests/", "^docs/", "^ci/"]
+disable_error_code = ["name-defined"]
+ignore_missing_imports = true
+
+
+[tool.black]
+line-length = 120
+target-version = ['py310']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+
+    # The following are specific to Black, you probably don't want those.
+    | blib2to3
+    | tests/data
+)/
+'''
+
+[tool.isort]
+profile = "black"
+py_version = "310"
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 120
+src_paths = ["./dfi", "./tests"]
+skip_glob = ["ci/cache"]
+
+
+[tool.pylint.'MASTER']
+jobs = 0       # use all cores
+fail-under = 9
+
+[tool.pylint.'MESSAGES CONTROL']
+max-line-length = 120
+
+disable = [
+  "C0114", # missing-module-docstring
+  "C0116", # missing-docstring
+  "C0103", # invalid-name
+  "W0104", # pointless-statement
+]
+
+[tool.pylint.'MISCELLANEOUS']
+notes = [
+  "TODO",
+  "FIXME",
+  "XXX",
+] # List of note tags to take in consideration, separated by a comma.
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

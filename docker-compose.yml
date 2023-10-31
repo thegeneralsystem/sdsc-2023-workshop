@@ -1,0 +1,20 @@
+services:
+  jupyter:
+    # image: workbook:latest
+    build:
+      dockerfile: ./workbook.Dockerfile
+    container_name: jupyter
+    ports:
+      - 8888:8888
+    volumes:
+      - "./:/sdsc-workshop-book:rw"
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+
+  presentation:
+    # image: mdbook:latest
+    build:
+      dockerfile: ./mdbook.Dockerfile
+    container_name: presentation
+    ports:
+      - 3000:3000

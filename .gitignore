@@ -1,0 +1,16 @@
+# presentation document
+book
+presentation/book
+public
+
+
+# Added by cargo
+
+/target
+.DS_Store
+venv
+
+notebooks/.ipynb_checkpoints
+
+bsc_gdf
+osm_gdf

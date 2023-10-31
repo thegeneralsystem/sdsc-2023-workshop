@@ -1,0 +1,36 @@
+[book]
+title = "Deeper, Broader, Faster, Stronger"
+authors = ["Robert Edwards", "Josh Brammall"]
+description = "SDSC NYC 2023 Workshop"
+src = "src"
+language = "en"
+multilingual = false
+
+
+# config options https://rust-lang.github.io/mdBook/format/configuration/renderers.html?highlight=analytics#html-renderer-options
+[output.html]
+# theme = "theme"
+default-theme = "ayu"
+preferred-dark-theme = "ayu"
+curly-quotes = true
+mathjax-support = false
+copy-fonts = true
+no-section-label = false
+git-repository-url = "https://github.com/thegeneralsystem"
+git-repository-icon = "fa-github"
+site-url = "www.generalsystem.com"
+# google-analytics = "" # this option is deprecated.  Need to create a `theme/head.hbs`
+cname = "" # The DNS subdomain or apex domain at which your book will be hosted. This string will be written to a file named CNAME in the root of your site, as required by GitHub Pages (see Managing a custom domain for your GitHub Pages site).
+additional-css = ["./theme/css/variable.css", "./theme/css/mdbook-admonish.css"]
+
+[output.html.playground]
+editable = true
+
+[preprocessor.admonish]
+command = "mdbook-admonish"
+assets_version = "2.0.2" # do not edit: managed by `mdbook-admonish install`
+
+[preprocessor.katex]
+after = ["links"]
+
+[preprocessor.presentation-preprocessor] 
